@@ -1,9 +1,10 @@
 window.addEventListener('DOMContentLoaded', async function(event) {
+  firebase.auth().onAuthStateChanged(async function(user) {}
   let db = firebase.firestore()
   let apiKey = 'your TMDB API key'
-  let response = await fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US`)
-  let json = await response.json()
-  let movies = json.results
+  let response = await fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=0604c86b9c0ecd7439f4397d83e175b1&language=en-US`)
+  let json = await response.json() 
+  let movies = json.results 
   console.log(movies)
   
   for (let i=0; i<movies.length; i++) {
@@ -27,7 +28,7 @@ window.addEventListener('DOMContentLoaded', async function(event) {
       let movieElement = document.querySelector(`.movie-${movie.id}`)
       movieElement.classList.add('opacity-20')
       await db.collection('watched').doc(`${movie.id}`).set({})
-    }) 
+    })) 
   }
 })
 

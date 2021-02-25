@@ -32,9 +32,31 @@
 
   <script>
     // Your web app's Firebase configuration
-    var firebaseConfig = {}
+    var firebaseConfig = {
+      apiKey: "AIzaSyCOFS4_Rum9zvOwbF6YHkwIhj_fADS5pnA",
+      authDomain: "kiei-451-b8c87.firebaseapp.com",
+      projectId: "kiei-451-b8c87",
+      storageBucket: "kiei-451-b8c87.appspot.com",
+      messagingSenderId: "781226823476",
+      appId: "1:781226823476:web:01a54f8768fc05adab9f61"
+  }
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
+
+    // Initializes FirebaseUI Auth
+  let ui = new firebaseui.auth.AuthUI(firebase.auth())
+
+  // FirebaseUI configuration
+  let authUIConfig = {
+    signInOptions: [
+      firebase.auth.EmailAuthProvider.PROVIDER_ID
+    ],
+    signInSuccessUrl: 'todo.html'
+  }
+
+  // Starts FirebaseUI Auth
+  ui.start('.sign-in-or-sign-out', authUIConfig)
+
   </script>
   <script src="movies.js"></script>
 </body>
